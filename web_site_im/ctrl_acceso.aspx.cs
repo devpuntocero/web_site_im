@@ -31,7 +31,7 @@ public partial class ctrl_acceso : System.Web.UI.Page
             {
                 lkb_registro.Visible = true;
 
-                lblModalTitle.Text = "transcript";
+                lblModalTitle.Text = "Intelimundo";
                 lblModalBody.Text = "No existe Director ni Corporativo, favor de registrarlos";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                 upModal.Update();
@@ -39,7 +39,7 @@ public partial class ctrl_acceso : System.Web.UI.Page
         }
         catch
         {
-            lblModalTitle.Text = "transcript";
+            lblModalTitle.Text = "Intelimundo";
             lblModalBody.Text = "Sin conexión a base de datos, contactar al administrador";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
             upModal.Update();
@@ -75,8 +75,8 @@ public partial class ctrl_acceso : System.Web.UI.Page
         using (db_imEntities edm_centro = new db_imEntities())
         {
             var i_centro = (from u in edm_centro.inf_centro
-                              where u.id_tipo_centro == 1
-                              select u).ToList();
+                            where u.id_tipo_centro == 1
+                            select u).ToList();
 
             if (i_centro.Count == 0)
             {
@@ -99,20 +99,20 @@ public partial class ctrl_acceso : System.Web.UI.Page
         if (string.IsNullOrEmpty(txt_usuario.Text))
         {
 
-            txt_usuario.BackColor = Color.Yellow;
+            txt_usuario.BackColor = Color.IndianRed;
         }
         else
         {
-            txt_usuario.BackColor = Color.Transparent;
+            txt_usuario.BackColor = Color.White;
 
             if (string.IsNullOrEmpty(txt_clave.Text))
             {
 
-                txt_clave.BackColor = Color.Yellow;
+                txt_clave.BackColor = Color.IndianRed;
             }
             else
             {
-                txt_clave.BackColor = Color.Transparent;
+                txt_clave.BackColor = Color.White;
 
                 string str_usuario = txt_usuario.Text;
                 string str_clave = mdl_encrypta.Encrypt(txt_clave.Text);
@@ -127,16 +127,34 @@ public partial class ctrl_acceso : System.Web.UI.Page
 
                         if (i_usuario.Count == 0)
                         {
-                            lblModalTitle.Text = "transcript";
+                            lblModalTitle.Text = "Intelimundo";
                             lblModalBody.Text = "Usuario incorrecto, favor de contactar al Administrador.";
                             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                             upModal.Update();
                         }
                         else
                         {
-                            if (i_usuario[0].id_tipo_usuario == 9)
+                            str_vclave = i_usuario[0].clave;
+
+                            if (i_usuario[0].id_tipo_usuario == 1)
                             {
-                                str_vclave = i_usuario[0].clave;
+                                if (str_clave == str_vclave && i_usuario[0].id_estatus == 1)
+                                {
+
+                                    Session["ss_idusuario"] = i_usuario[0].id_usuario;
+                                    Response.Redirect("ctrl_panel.aspx");
+                                }
+                                else
+                                {
+                                    lblModalTitle.Text = "Intelimundo";
+                                    lblModalBody.Text = "Contraseña incorrecta, favor de contactar al Administrador.";
+                                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                                    upModal.Update();
+                                }
+                            }
+                            else if (i_usuario[0].id_tipo_usuario == 9)
+                            {
+
 
                                 if (str_clave == str_vclave && i_usuario[0].id_estatus == 1)
                                 {
@@ -146,7 +164,7 @@ public partial class ctrl_acceso : System.Web.UI.Page
                                 }
                                 else
                                 {
-                                    lblModalTitle.Text = "transcript";
+                                    lblModalTitle.Text = "Intelimundo";
                                     lblModalBody.Text = "Contraseña incorrecta, favor de contactar al Administrador.";
                                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                                     upModal.Update();
@@ -166,11 +184,10 @@ public partial class ctrl_acceso : System.Web.UI.Page
                 }
                 catch
                 {
-                    
+
                 }
             }
         }
     }
 }
 
-    
