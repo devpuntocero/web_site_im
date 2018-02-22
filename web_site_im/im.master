@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="im.master.cs" Inherits="im" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/ss.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+   
+    <link rel="shortcut icon" href="img/im_ico.png" type="image/png" />
+    <title>Intelimundo</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+         <footer class="section section-primary animated bounceInUp">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <h1>Intelimundo</h1>
+                    <p>
+                        Visitanos en Calle Aldama #23-B, San Antonio Tecomitl, Delegación Milpa
+                            Alta D.F.
+                           
+                        <br />
+                        Habla directamente a nuestra central al teléfono: 5847-2575
+                           
+                        <br />
+                        Envíanos un mail a info@intelimundo.com.mx
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-info text-right">
+                        <br />
+                        <br />
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                            <a href="https://twitter.com/intelimundo"><i class="fa fa-3x fa-fw fa-twitter animated swing"></i></a>
+                            <a href="https://www.facebook.com/Intelimundo.edu"><i class="fa fa-3x fa-fw fa-facebook swing"></i></a>
+                            <a href="https://plus.google.com/+Aulaintelimundo"><i class="fa fa-3x fa-fw fa-google-plus animated swing"></i></a>
+                            <a href="https://www.youtube.com/user/intelimundoedu"><i class="fa fa-3x fa-fw -plus fa-youtube animated swing"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 hidden-xs text-right">
+                            <a href="https://twitter.com/intelimundo"><i class="fa fa-3x fa-fw fa-twitter animated  swing"></i></a>
+                            <a href="https://www.facebook.com/Intelimundo.edu"><i class="fa fa-3x fa-fw fa-facebook animated swing"></i></a>
+                            <a href="https://plus.google.com/+Aulaintelimundo"><i class="fa fa-3x fa-fw fa-google-plus animated swing"></i></a>
+                            <a href="https://www.youtube.com/user/intelimundoedu"><i class="fa fa-3x fa-fw -plus fa-youtube animated swing"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
